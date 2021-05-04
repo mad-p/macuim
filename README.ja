@@ -20,6 +20,15 @@ gettext, pkgconfig, glib, saryをビルドし、/opt/macuimにインストール
 
  % sudo mkdir /opt/macuim
 
+==== libiconv
+
+libiconv-1.10.tar.gzを展開
+build-libiconvでビルドする
+
+ % tar zxvf libiconv-1.10.tar.gz
+ % cd libiconv-1.10
+ % ../build-libiconv
+
 ==== gettext
 
 PRIMEディレクトリにgettex-0.14.5.tar.gzを展開する。
@@ -37,11 +46,11 @@ make installで/opt/macuimにインストールする。
 
 ==== pkgconfig
 
-PRIMEディレクトリにpkgconfig-0.15.0.tar.gzを展開し、build-pkgconfigでビルド
+PRIMEディレクトリにpkgconfig-0.16.0.tar.gzを展開し、build-pkgconfigでビルド
 する。
 
- % tar zxvf pkgconfig-0.15.0.tar.gz
- % cd pkgconfig-0.15.0
+ % tar zxvf pkgconfig-0.16.0.tar.gz
+ % cd pkgconfig-0.16.0
  % ../build-pkgconfig
 
 make installで/opt/macuimにインストールする。
@@ -50,12 +59,12 @@ make installで/opt/macuimにインストールする。
 
 ==== glib
 
-PRIMEディレクトリにglib-2.12.0.tar.bz2を展開し、パッチを当ててから
+PRIMEディレクトリにglib-2.16.3.tar.bz2を展開し、パッチを当ててから
 build-glibでビルドする。
 
- % tar jxvf glib-2.12.0.tar.bz2
- % cd glib-2.12.0
- % patch -p1 < glib-2.12.0-mac.patch
+ % tar jxvf glib-2.16.3.tar.bz2
+ % cd glib-2.16.3
+ % patch -p1 < glib-2.16.3-mac.patch
  % ../build-glib
 
 make installで/opt/macuimにインストールする。
@@ -65,9 +74,10 @@ make installで/opt/macuimにインストールする。
 ==== sary
 
 sary-?.?.?.tar.gzをhttp://sary.sourceforge.net/からダウンロードし、展
-開して、以下のようにビルドする。
+開して、パッチを当ててから以下のようにビルドする。
 
  % cd sary-1.2.0
+ % patch -p1 < sary-1.2.0-mac.patch
  % ../build-sary
 
 make installで/opt/macuimにインストールする。

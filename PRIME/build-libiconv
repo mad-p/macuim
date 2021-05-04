@@ -15,12 +15,11 @@ PATH="${prefix}/bin:/bin:/bin:/usr/bin"
 
 LIBS="-Wl,-framework -Wl,CoreFoundation -L${prefix}/lib" \
 CPPFLAGS="-no-cpp-precomp -isystem ${prefix}/include -D_POLL_EMUL_H_" \
-CFLAGS="-Os -Wno-deprecated-declarations -funroll-loops -fstrict-aliasing -isysroot /Applications/Xcode-12.4.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -arch x86_64 -mmacosx-version-min=11.1" \
-LDFLAGS="-arch x86_64 -L${prefix}/lib" \
+CFLAGS="-Os -std=gnu89 -Wno-deprecated-declarations -funroll-loops -fstrict-aliasing -isysroot /Applications/Xcode-12.4.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -arch x86_64 -mmacosx-version-min=11.1" \
+LDFLAGS="-arch x86_64" \
 LIBRARY_PATH="${prefix}/lib:/usr/lib" \
 ./configure --prefix=${prefix} --disable-shared \
   --mandir=${prefix}/share/man --disable-gtk-doc --disable-dependency-tracking \
-  --disable-dependency-tracking \
 || exit 1
 
-LIBS="-L${prefix}/lib -lintl -liconv" make -w || exit 1
+LIBS="-L${prefix}/lib" make -w || exit 1
